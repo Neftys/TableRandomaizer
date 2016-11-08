@@ -22,31 +22,41 @@ public class MainGroup {
 
     public static void main(String[] args) {
 
-        int groupsCount =25;
-        int tableCount=10;
-        int playerInTeam=4;
-        ArrayList<Team> teamArrayList =new ArrayList<Team>();
+        int groupsCount = 25;
+        int tableCount = 10;
+        int playerInTeam = 4;
+        int gameCount = 10;
+        ArrayList<Team> teamArrayList = new ArrayList<Team>();
         Player player;
         Team team;
+        ArrayList<ArrayList<Player>> roundLists = new ArrayList<ArrayList<Player>>();
+        ArrayList<Player> playersInTable = new ArrayList<Player>();
 
 
-        for (int i=1;i<=groupsCount;i++){
-            team=new Team();
+        for (int i = 1; i <= groupsCount; i++) {
+            team = new Team();
 
-            for (int l=0;l<playerInTeam;l++){
+            for (int l = 0; l < playerInTeam; l++) {
 
-                player=new Player();
+                player = new Player();
                 player.setTeam(i);
                 team.addDefaultPlayer(player);
             }
             teamArrayList.add(team);
-
         }
 
+        for (int i = 0; i < tableCount; i++) {
 
-        System.out.println(teamArrayList);
+            for (int l = 0; l < 10; l++) {
+                int randomTeam=randInt(teamArrayList.size());
+                team = teamArrayList.get(randomTeam);
+                player=team.getPlayer();
+                playersInTable.add(player);
 
 
+            }
+
+        }
 
 
     }
