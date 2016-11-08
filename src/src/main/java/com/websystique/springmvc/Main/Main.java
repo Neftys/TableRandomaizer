@@ -26,22 +26,25 @@ public class Main {
         int tables = 10;
         int team = 1;
         int gameCount=10;
-        ArrayList<Player> playersPuted = new ArrayList<Player>();
+        ArrayList<Player> playersNotPuted = new ArrayList<Player>();
+
 
         for (int i = 0; i < 100; i++) {
             Player player = new Player();
             player.setTeam(team);
             playerInTeam--;
-            playersPuted.add(player);
+            playersNotPuted.add(player);
             if (playerInTeam == 0) {
                 team++;
                 playerInTeam = 4;
             }
         }
 
-        System.out.println("Player count is " + playersPuted.size());
+        System.out.println("Player count is " + playersNotPuted.size());
         System.out.println("Player in one team "+playerInTeam);
         System.out.println("Total games is"+gameCount);
+
+
 
         HashMap<Integer, ArrayList<Player>> hashMap = new HashMap<Integer, ArrayList<Player>>();
 
@@ -49,8 +52,10 @@ public class Main {
             ArrayList<Player> playTable = new ArrayList<Player>();
             hashMap.put(i + 1, playTable);
         }
-
         System.out.println("Table count is "+hashMap.size());
+
+
+
 
 
 
