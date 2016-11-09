@@ -27,12 +27,14 @@ public class MainGroup {
         int playerInTeam = 4;
         int gameCount = 10;
         ArrayList<Team> teamArrayList = new ArrayList<Team>();
+        ArrayList<Team> usedTeamArrayList = new ArrayList<Team>();
         Player player;
         Team team;
         ArrayList<ArrayList<Player>> roundLists = new ArrayList<ArrayList<Player>>();
         ArrayList<Player> playersInTable = new ArrayList<Player>();
 
 
+        //Create Group of Team
         for (int i = 1; i <= groupsCount; i++) {
             team = new Team();
 
@@ -45,19 +47,25 @@ public class MainGroup {
             teamArrayList.add(team);
         }
 
+
+        //Start
+
+        usedTeamArrayList.addAll(teamArrayList);
+
         for (int i = 0; i < tableCount; i++) {
 
             for (int l = 0; l < 10; l++) {
-                int randomTeam=randInt(teamArrayList.size());
-                team = teamArrayList.get(randomTeam);
-                player=team.getPlayer();
-                playersInTable.add(player);
+
+                int randomTeam = randInt(usedTeamArrayList.size());
+                team = usedTeamArrayList.get(randomTeam);
+                player = team.getPlayer();
+                if (team.isEmpty()) {
+                    usedTeamArrayList.remove(team);
+                }
 
 
             }
-
         }
-
 
     }
 

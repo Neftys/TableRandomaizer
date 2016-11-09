@@ -34,6 +34,11 @@ public class Team {
 
     }
 
+    public boolean isEmpty(){
+       return players.isEmpty();
+    }
+
+
     public ArrayList<Player> getDefaultTeam() {
         return defaultTeam;
     }
